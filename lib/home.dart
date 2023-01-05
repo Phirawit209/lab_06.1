@@ -43,6 +43,23 @@ class _HomepageState extends State<Homepage> {
     return items;
   }
 
+List<Widget> createCheckbox() {
+    List<Widget> Course = [];
+    var course;
+    for (Course Course in Course) {
+      Course.add(CheckboxListTile(
+        title: Text(Course.CourseName),
+        value: Course.checked,
+        onChanged: (value) {
+          setState(() {
+            Course.checked = value as Boolean;
+          });
+        },
+      ));
+    }
+    return Course;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,11 +76,13 @@ class _HomepageState extends State<Homepage> {
           setState(() {
           _selectedItem = value!;  
           });
+          
           },
         )
       ]
         )),
     );
+
    }  
    
    
